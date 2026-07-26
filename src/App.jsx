@@ -6,6 +6,9 @@ import Register from './pages/Register';
 import VerifyOtp from './pages/VerifyOtp';
 import OAuthSuccess from './pages/OAuthSuccess';
 import Dashboard from './pages/Dashboard';
+import Menu from './pages/Menu';
+import JoinQueue from './pages/JoinQueue';
+import QueueStatus from './pages/QueueStatus';
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/verify-otp" element={<VerifyOtp />} />
           <Route path="/oauth-success" element={<OAuthSuccess />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/join-queue" element={<JoinQueue />} />
+          <Route path="/queue-status/:id" element={<QueueStatus />} />
           <Route
             path="/dashboard"
             element={
@@ -24,7 +30,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Menu />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
