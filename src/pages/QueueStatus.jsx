@@ -47,6 +47,15 @@ function QueueStatus() {
           </div>
         )}
 
+
+{status.status === 'WAITING' && (
+  <div className="mb-6 bg-blue-50 rounded-lg p-4">
+    <p className="text-sm text-gray-600">Estimated Wait</p>
+    <p className="text-2xl font-bold text-blue-700">~{status.estimatedWaitMinutes} min</p>
+    <p className="text-xs text-gray-400 mt-1">Smart estimate based on queue ahead of you</p>
+  </div>
+)}
+
         {status.status === 'SEATED' && (
           <p className="text-green-600 font-medium mb-6">You've been seated. Enjoy your meal!</p>
         )}
