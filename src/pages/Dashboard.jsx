@@ -16,6 +16,8 @@ function Dashboard() {
         <h1 className="text-2xl font-bold text-blue-600 mb-4">Welcome to QueueEase</h1>
         <p className="text-gray-700">Logged in as: {user?.email}</p>
         <p className="text-gray-700 mb-4">Role: {user?.role}</p>
+
+
         <button
           onClick={handleLogout}
           className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
