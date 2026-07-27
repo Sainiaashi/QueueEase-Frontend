@@ -56,9 +56,9 @@ function Login() {
         </form>
 
         
-         <a href="http://localhost:8080/oauth2/authorization/google"
-          className="mt-4 block text-center border border-gray-300 rounded py-2 hover:bg-gray-50"
-        >
+        <a href={`${import.meta.env.VITE_API_BASE_URL?.replace('/api', '')}/oauth2/authorization/google`}
+  className="mt-4 block text-center border border-gray-300 rounded py-2 hover:bg-gray-50"
+>
           Sign in with Google
         </a>
 
