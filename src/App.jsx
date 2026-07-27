@@ -12,6 +12,11 @@ import Menu from './pages/Menu';
 import JoinQueue from './pages/JoinQueue';
 import QueueStatus from './pages/QueueStatus';
 import ManageMenu from './pages/ManageMenu';
+import TakeOrder from './pages/TakeOrder';
+import TableBill from './pages/TableBill';
+import CustomerOrder from './pages/CustomerOrder';
+import CustomerBill from './pages/CustomerBill';
+import MyTable from './pages/MyTable';
 
 function App() {
   return (
@@ -26,6 +31,25 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/join-queue" element={<JoinQueue />} />
           <Route path="/queue-status/:id" element={<QueueStatus />} />
+          <Route path="/order/:tableNumber" element={<CustomerOrder />} />
+          <Route path="/my-table" element={<MyTable />} />
+<Route path="/my-bill/:tableNumber" element={<CustomerBill />} />
+          <Route
+  path="/take-order"
+  element={
+    <StaffRoute>
+      <TakeOrder />
+    </StaffRoute>
+  }
+/>
+<Route
+  path="/table-bill"
+  element={
+    <StaffRoute>
+      <TableBill />
+    </StaffRoute>
+  }
+/>
           <Route
             path="/manage-menu"
             element={

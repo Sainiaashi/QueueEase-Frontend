@@ -8,6 +8,7 @@ function ManageMenu() {
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const [error, setError] = useState('');
+  const [ingredients, setIngredients] = useState('');
 
   useEffect(() => {
     fetchItems();
@@ -26,11 +27,12 @@ function ManageMenu() {
     e.preventDefault();
     setError('');
     try {
-      await createMenuItem({ name, description, price: Number(price), category });
+      await createMenuItem({ name, description, price: Number(price), category, ingredients });
       setName('');
       setDescription('');
       setPrice('');
       setCategory('');
+      setIngredients('');
       fetchItems();
     } catch (err) {
       setError('Failed to add item. Make sure you are logged in as staff.');
@@ -79,6 +81,13 @@ function ManageMenu() {
             onChange={(e) => setDescription(e.target.value)}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
+          <input
+  type="text"
+  placeholder="Ingredients (comma separated)"
+  value={ingredients}
+  onChange={(e) => setIngredients(e.target.value)}
+  className="w-full border border-gray-300 rounded px-3 py-2"
+/>
           <input
             type="number"
             placeholder="Price"

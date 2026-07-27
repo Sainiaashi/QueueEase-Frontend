@@ -57,8 +57,18 @@ function QueueStatus() {
 )}
 
         {status.status === 'SEATED' && (
-          <p className="text-green-600 font-medium mb-6">You've been seated. Enjoy your meal!</p>
-        )}
+  <div className="mb-6">
+    <p className="text-green-600 font-medium mb-3">
+      You've been seated at Table {status.tableNumber}!
+    </p>
+    <Link
+      to={`/order/${status.tableNumber}`}
+      className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+    >
+      Order Now
+    </Link>
+  </div>
+)}
 
         {status.status === 'CANCELLED' && (
           <p className="text-red-500 font-medium mb-6">Your queue entry was cancelled.</p>

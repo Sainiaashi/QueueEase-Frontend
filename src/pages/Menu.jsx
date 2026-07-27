@@ -59,15 +59,22 @@ function Menu() {
               {categoryItems.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-white p-4 rounded-lg shadow-sm flex justify-between items-start"
+                  className="bg-white p-4 rounded-lg shadow-sm"
                 >
-                  <div>
-                    <h3 className="font-medium text-gray-900">{item.name}</h3>
-                    {item.description && (
-                      <p className="text-sm text-gray-500 mt-1">{item.description}</p>
-                    )}
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-medium text-gray-900">{item.name}</h3>
+                      {item.description && (
+                        <p className="text-sm text-gray-500 mt-1">{item.description}</p>
+                      )}
+                    </div>
+                    <span className="font-semibold text-blue-600">₹{item.price}</span>
                   </div>
-                  <span className="font-semibold text-blue-600">₹{item.price}</span>
+                  {item.ingredients && (
+                    <p className="text-xs text-gray-400 mt-2">
+                      <span className="font-medium">Ingredients:</span> {item.ingredients}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

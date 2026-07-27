@@ -21,11 +21,22 @@ function Navbar() {
           <Link to="/menu" className="text-gray-700 hover:text-blue-600 text-sm">
             Menu
           </Link>
+          <Link to="/my-table" className="text-gray-700 hover:text-blue-600 text-sm">
+  My Table
+</Link>
 
           {(user?.role === 'STAFF' || user?.role === 'ADMIN') && (
-            <Link to="/manage-menu" className="text-gray-700 hover:text-blue-600 text-sm">
-              Manage Menu
-            </Link>
+            <>
+              <Link to="/manage-menu" className="text-gray-700 hover:text-blue-600 text-sm">
+                Manage Menu
+              </Link>
+              <Link to="/take-order" className="text-gray-700 hover:text-blue-600 text-sm">
+                Take Order
+              </Link>
+              <Link to="/table-bill" className="text-gray-700 hover:text-blue-600 text-sm">
+                Table Bill
+              </Link>
+            </>
           )}
 
           {user ? (
