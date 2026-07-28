@@ -142,3 +142,7 @@ AI-Powered Restaurant Insights
 This project was developed solely for VibeAthon 6.0 – Vibecoding Hackathon 2026.
 
 Feel free to explore and learn from the implementation.
+
+// note login as staff use:-
+email:-evaluator1@gmail.com
+password:-evaluator@123
