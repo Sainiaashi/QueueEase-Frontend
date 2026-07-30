@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAvailableMenu } from '../api/menuApi';
+import { getAvailableMenu, getRecommendations } from '../api/menuApi';
 
 function Menu() {
   const [items, setItems] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [recLoading, setRecLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     fetchMenu();
+    fetchRecommendations();
   }, []);
 
   const fetchMenu = async () => {
@@ -19,6 +22,17 @@ function Menu() {
       setError('Failed to load menu. Please try again.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchRecommendations = async () => {
+    try {
+      const response = await getRecommendations();
+      setRecommendations(response.data);
+    } catch (err) {
+      setRecommendations([]);
+    } finally {
+      setRecLoading(false);
     }
   };
 
@@ -47,6 +61,29 @@ function Menu() {
         </div>
 
         {error && <p className="text-red-500 mb-4">{error}</p>}
+
+        {!recLoading && recommendations.length > 0 && (
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-lg">✨</span>
+              <h2 className="text-xl font-semibold text-gray-800">Recommended for You</h2>
+              <span className="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-medium">
+                AI Picked
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {recommendations.map((rec, idx) => (
+                <div
+                  key={idx}
+                  className="bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100 p-4 rounded-lg"
+                >
+                  <p className="font-semibold text-gray-900">{rec.name}</p>
+                  <p className="text-sm text-gray-600 mt-1">{rec.reason}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {items.length === 0 && !error && (
           <p className="text-gray-500">No items available right now.</p>

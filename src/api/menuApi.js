@@ -1,5 +1,9 @@
 import axiosInstance from './axiosInstance';
 
+export const getRecommendations = () => {
+  return axiosInstance.get('/menu/recommendations');
+};
+
 export const getAvailableMenu = () => {
   return axiosInstance.get('/menu/available');
 };
