@@ -18,6 +18,20 @@ import CustomerOrder from './pages/CustomerOrder';
 import CustomerBill from './pages/CustomerBill';
 import MyTable from './pages/MyTable';
 
+import { ToastProvider } from './context/ToastContext';
+
+function App() {
+  return (
+    <ToastProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          {/* ...everything else stays exactly the same... */}
+        </BrowserRouter>
+      </AuthProvider>
+    </ToastProvider>
+  );
+}
+
 function App() {
   return (
     <AuthProvider>

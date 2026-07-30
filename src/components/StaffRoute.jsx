@@ -1,14 +1,31 @@
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Navigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import LoadingSpinner from "./LoadingSpinner";
 
 function StaffRoute({ children }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  const location = useLocation();
 
-  if (!user) {
-    return <Navigate to="/login" replace />;
+  // Wait for authentication state restoration
+  if (loading) {
+    return <LoadingSpinner text="Checking permissions..." />;
   }
 
-  if (user.role !== 'STAFF' && user.role !== 'ADMIN') {
+  // User is not authenticated
+  if (!user) {
+    return (
+      <Navigate
+        to="/login"
+        replace
+        state={{
+          from: location,
+        }}
+      />
+    );
+  }
+
+  // Only STAFF and ADMIN can access
+  if (user.role !== "STAFF" && user.role !== "ADMIN") {
     return <Navigate to="/dashboard" replace />;
   }
 

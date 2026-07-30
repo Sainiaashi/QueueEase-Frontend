@@ -1,148 +1,412 @@
-🍽️ QueueEase - Frontend
+# 🍽️ QueueEase – Smart Restaurant Management Platform (Frontend)
 
-A modern and responsive frontend for QueueEase, a smart restaurant management platform developed during VibeAthon 6.0 – Vibecoding Hackathon 2026.
+QueueEase is a modern restaurant management platform built during **VibeAthon 6.0 – Vibecoding Hackathon 2026**.
 
-QueueEase enhances the dining experience by providing a Live Digital Menu, Real-Time Dish Availability, Ingredient Transparency, Virtual Queue Management, and Automatic Bill Generation, while enabling restaurant staff to efficiently manage daily operations through an intuitive dashboard.
+It provides a seamless digital dining experience for customers while helping restaurant staff efficiently manage menus, queues, orders, and billing through an intuitive web interface.
 
-👥 Team Details
+---
 
-Team Name: TeachEra
+# 👥 Team
 
-Team Leader: Aashi (Solo Participant)
+**Team Name:** TeachEra
 
-Hackathon: VibeAthon 6.0 – Vibecoding Hackathon 2026
+**Team Leader:** Aashi (Solo Participant)
 
-🚀 Features
-👤 Customer Features
-Google Authentication
-Secure Login & Logout
-Browse Live Digital Menu
-Real-Time Dish Availability
-View Complete Ingredients of Every Dish
-Join Virtual Queue
-Track Queue Status
-Place Orders
-Automatic Bill Generation
-Responsive User Interface
-👨‍🍳 Restaurant Staff Features
-Staff Dashboard
-Manage Menu Items
-Update Item Availability
-View Customer Orders
-Manage Virtual Queue
-Dashboard Navigation
-Role-Based Access
-🛠️ Tech Stack
-Framework: React.js (Vite)
-Styling: Tailwind CSS
-Language: JavaScript
-Authentication: Google OAuth
-API Communication: REST APIs
-Deployment: Vercel
-📁 Project Structure
-src/
-├── assets/
-├── components/
-├── pages/
-├── services/
-├── hooks/
-├── context/
-├── layouts/
-├── utils/
-├── App.jsx
-└── main.jsx
-⚙️ Getting Started
-Clone the Repository
-git clone <frontend-repository-url>
-cd queueease-frontend
-Install Dependencies
-npm install
-Configure Environment Variables
+**Hackathon:** VibeAthon 6.0 – Vibecoding Hackathon 2026
 
-Create a .env file in the project root.
+---
 
-VITE_API_BASE_URL=YOUR_BACKEND_URL
+# 🚀 Live Demo
 
-Replace YOUR_BACKEND_URL with your deployed backend URL.
-
-Run the Development Server
-npm run dev
-
-The application will be available at:
-
-http://localhost:5173
-🌐 Deployment
-
-Frontend is deployed using Vercel.
-
-Live Demo:
+**Frontend**
 
 https://queue-ease-frontend.vercel.app
-📌 Project Workflow
-User signs in using Google Authentication.
-Browse the Live Digital Menu.
-Check dish availability and ingredients.
-Join the Virtual Queue.
-Place an order.
-View automatically generated bill.
-Restaurant staff manage menu, queue, and operations through the dashboard.
-🚧 Project Status
-✅ Completed
-Live Digital Menu
-Real-Time Availability
-Ingredient Transparency
-Virtual Queue
-Google Authentication
-Staff Dashboard
-Automatic Bill Generation
-💎 Platinum (Level 5) Status
 
-The current submission successfully completes the Bronze, Silver, and Gold user stories of the VibeAthon 6.0 challenge.
+**Backend API**
 
-Planned Platinum (AI) Features
+https://queueease-backend-ifx3.onrender.com
 
-The following AI-powered capabilities are planned for future development:
+---
 
-AI-based Wait Time Prediction
-Personalized Dish Recommendations
-Smart Inventory Prediction
-Demand Forecasting
-AI-powered Restaurant Assistant
-Intelligent Operational Insights
+# ✨ Features
 
-These features are currently under development and are not implemented in this submission.
+## 👤 Customer Features
 
-🤖 AI Usage
+- Secure Login & Registration
+- Email OTP Verification
+- Google OAuth Login
+- Live Digital Menu
+- Real-Time Dish Availability
+- Ingredient Transparency
+- Category-wise Menu
+- AI Dish Recommendations
+- Join Virtual Queue
+- Live Queue Status Tracking
+- Automatic Table Assignment
+- Place Orders
+- View Live Bill
+- Responsive UI
+
+---
+
+## 👨‍🍳 Staff Features
+
+- Staff Login
+- Dashboard
+- Menu Management
+- Add New Menu Items
+- Delete Menu Items
+- Toggle Item Availability
+- Take Customer Orders
+- View Table Bills
+- Queue Management
+- Role-Based Access Control
+
+---
+
+# 📸 Application Flow
+
+### Customer
+
+```
+Login/Register
+        ↓
+Browse Menu
+        ↓
+Join Queue
+        ↓
+Receive Table
+        ↓
+Order Food
+        ↓
+View Bill
+```
+
+### Staff
+
+```
+Login
+      ↓
+Dashboard
+      ↓
+Manage Menu
+      ↓
+Take Orders
+      ↓
+View Bills
+      ↓
+Manage Restaurant
+```
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React 19
+- Vite
+- Tailwind CSS 4
+- React Router
+- Axios
+- Context API
+
+---
+
+## Backend
+
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- Google OAuth2
+- Spring Data JPA
+- MySQL (Aiven Cloud)
+- REST APIs
+
+---
+
+## Deployment
+
+- Frontend → Vercel
+- Backend → Render
+- Database → Aiven MySQL
+
+---
+
+# 📁 Project Structure
+
+```
+src
+│
+├── api
+│
+├── components
+│
+│   ├── Navbar
+│   ├── ProtectedRoute
+│   ├── StaffRoute
+│   ├── ConfirmModal
+│   ├── LoadingSpinner
+│   └── EmptyState
+│
+├── context
+│
+│   ├── AuthContext
+│   └── ToastContext
+│
+├── pages
+│
+│   ├── Login
+│   ├── Register
+│   ├── VerifyOtp
+│   ├── OAuthSuccess
+│   ├── Dashboard
+│   ├── Menu
+│   ├── JoinQueue
+│   ├── QueueStatus
+│   ├── CustomerOrder
+│   ├── CustomerBill
+│   ├── MyTable
+│   ├── ManageMenu
+│   ├── TakeOrder
+│   └── TableBill
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+# ⚙️ Local Setup
+
+## Clone Repository
+
+```bash
+git clone <your-frontend-repository-url>
+
+cd queueease-frontend
+```
+
+---
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## Create Environment File
+
+Create a `.env` file.
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
+```
+
+For production
+
+```env
+VITE_API_BASE_URL=https://queueease-backend-ifx3.onrender.com
+```
+
+---
+
+## Start Development Server
+
+```bash
+npm run dev
+```
+
+Open
+
+```
+http://localhost:5173
+```
+
+---
+
+# 🔐 Authentication
+
+QueueEase supports
+
+- Email Registration
+- OTP Verification
+- JWT Authentication
+- Google OAuth Login
+- Role-Based Authorization
+
+Roles:
+
+- Customer
+- Staff
+- Admin
+
+---
+
+# 🍽 Restaurant Features
+
+### Digital Menu
+
+- Category-wise display
+- Availability status
+- Ingredient information
+- AI recommendations
+
+---
+
+### Queue Management
+
+Customers can
+
+- Join queue
+- Track live status
+- Receive table allocation
+
+---
+
+### Ordering System
+
+- Place food orders
+- Multiple items
+- Quantity selection
+- Automatic bill calculation
+
+---
+
+### Billing
+
+- View table bill
+- Live total calculation
+- Order history for current table
+
+---
+
+### Staff Dashboard
+
+Staff members can
+
+- Manage menu
+- Add new items
+- Delete items
+- Toggle availability
+- Take orders
+- View customer bills
+
+---
+
+# 📱 Responsive Design
+
+QueueEase is fully responsive for
+
+- Desktop
+- Tablet
+- Mobile
+
+---
+
+# 🚧 Project Status
+
+## ✅ Completed
+
+- Authentication
+- Google Login
+- OTP Verification
+- JWT Security
+- Digital Menu
+- Ingredient Transparency
+- AI Recommendations
+- Queue Management
+- Order Management
+- Bill Generation
+- Staff Dashboard
+- Responsive UI
+
+---
+
+# 🤖 AI Features
+
+## Currently Implemented
+
+- AI-powered Dish Recommendations
+
+---
+
+## Planned Future AI Features
+
+- AI Wait Time Prediction
+- Smart Inventory Forecasting
+- Demand Prediction
+- Restaurant Analytics
+- AI Restaurant Assistant
+- Personalized Dining Suggestions
+
+---
+
+# 🧠 AI Usage
 
 This project was developed with assistance from AI tools during the hackathon.
 
-AI Tools Used
-ChatGPT (OpenAI)
-Claude (Anthropic)
-AI was used for
-Brainstorming and refining the project idea
-UI/UX planning
-Architecture discussions
-Debugging
-Documentation
-Code optimization
-Presentation preparation
+### AI Tools
 
-All AI-assisted suggestions and generated code were reviewed, modified, integrated, and tested by the developer before submission.
+- ChatGPT (OpenAI)
+- Claude (Anthropic)
 
-🔮 Future Enhancements
-QR Code Table Ordering
-Online Payment Integration
-Push Notifications
-Multi-Branch Restaurant Support
-Advanced Analytics Dashboard
-AI-Powered Restaurant Insights
-📄 License
+### AI Assisted In
 
-This project was developed solely for VibeAthon 6.0 – Vibecoding Hackathon 2026.
+- System Architecture
+- UI/UX Planning
+- Feature Brainstorming
+- Debugging
+- Documentation
+- Code Review
+- API Design
+- Presentation Preparation
 
-Feel free to explore and learn from the implementation.
+All AI-generated suggestions were reviewed, modified, tested, and integrated by the developer before submission.
 
-// note login as staff use:-
-email:-evaluator1@gmail.com
-password:-evaluator@123
+---
+
+# 🔮 Future Enhancements
+
+- QR Code Table Ordering
+- Online Payments
+- Push Notifications
+- Kitchen Dashboard
+- Multi-Branch Support
+- Restaurant Analytics
+- AI Insights
+- Customer Feedback System
+- Sales Dashboard
+
+---
+
+# 🏆 Hackathon
+
+Built for
+
+**VibeAthon 6.0 – Vibecoding Hackathon 2026**
+
+---
+
+# 👨‍💻 Evaluator Login
+
+## Staff Account
+
+```
+Email:
+evaluator1@gmail.com
+
+Password:
+evaluator@123
+```
+
+---
+
+# 📄 License
+
+This project was developed exclusively for educational and hackathon purposes as part of **VibeAthon 6.0 – Vibecoding Hackathon 2026**.
+
+Feel free to explore the codebase and learn from the implementation.
